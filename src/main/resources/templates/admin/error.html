@@ -5,8 +5,13 @@
     <title>Title</title>
 </head>
 <body>
-<h2>Ошибка создания(изменения) пользователя - имя неуникальное</h2>
+<!--<h2>Ошибка создания(изменения) пользователя - имя неуникальное</h2>-->
 
-    <input type="button" value="Назад" onclick="window.location.href = '/admin'">
+<!--<input type="button" value="Назад" onclick="window.location.href = '/admin'">-->
+<!-- Динамическое отображение ошибки -->
+<h2 th:if="${errorMessage}" th:text="${errorMessage}">Ошибка создания(изменения) пользователя - имя неуникальное</h2>
+
+<!-- Кнопка для возврата на предыдущую страницу -->
+<input type="button" value="Назад" onclick="window.location.href = '/admin'">
 </body>
 </html>

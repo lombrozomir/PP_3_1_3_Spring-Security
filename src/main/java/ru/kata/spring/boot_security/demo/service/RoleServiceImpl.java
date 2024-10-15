@@ -29,9 +29,11 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     @Transactional
-    public void save(Role role) {
+    public boolean save(Role role) {
         if (findByName(role.getName()).isEmpty()) {
             roleRepository.save(role);
+            return true;
         }
+        return false;
     }
 }
