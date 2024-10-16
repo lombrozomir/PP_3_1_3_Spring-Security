@@ -25,7 +25,6 @@
         <button class="btn btn-link text-white-50" type="submit">Logout</button>
     </form>
 </nav>
-
 <div class="container-fluid">
     <div class="row">
         <nav class="col-2 sidebar px-0 pt-3">
@@ -84,9 +83,13 @@
                                             <td class="align-middle" th:text="${user.getUsername()}">
                                             <td class="align-middle"
                                                 th:text="${#strings.arrayJoin(user.getRoles(),' ')}">
-                                            <td class="align-middle"><a data-toggle="modal" th:data-row="${user}"
-                                                                        th:attr="data-target='#modal-editing'+${user.getId()}"
-                                                                        class="btn btn-info active">Edit</a>
+
+                                            <td class="align-middle">
+                                                <a data-toggle="modal"
+                                                   th:data-row="${user}"
+                                                   th:attr="data-target='#modal-editing'+${user.getId()}"
+                                                   class="btn btn-info active">Edit</a>
+
                                                 <div th:fragment="modal" class="modal fade"
                                                      th:id="'modal-editing'+${user.getId()}" tabindex="-1"
                                                      role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
@@ -108,42 +111,50 @@
                                                                     <div class="form-group">
                                                                         <label th:for="'id_edit'+${user.getId()}"
                                                                                class="col-form-label mt-n2 mb-n2">ID </label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'id_edit'+${user.getId()}"
                                                                                th:value="${user.getId()}" readonly>
                                                                         <label th:for="'name_edit'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">First
                                                                             name </label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'name_edit'+${user.getId()}"
                                                                                th:name="firstName"
                                                                                th:value="${user.getFirstName()}">
                                                                         <label th:for="'lastname_edit'+${user.getId()}"
-                                                                               class="col-form-label mt-1 mb-n2">Last name </label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                               class="col-form-label mt-1 mb-n2">Last
+                                                                            name </label>
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'lastname_edit'+${user.getId()}"
                                                                                th:name="lastName"
                                                                                th:value="${user.getLastName()}">
                                                                         <label th:for="'age_edit'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">Age </label>
-                                                                        <input type="number" class="form-control form-control-sm mb-1"
+                                                                        <input type="number"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'age_edit'+${user.getId()}"
                                                                                th:name="age"
                                                                                th:value="${user.getAge()}">
                                                                         <label th:for="'username_edit'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">Email </label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'username_edit'+${user.getId()}"
                                                                                th:name="username"
                                                                                th:value="${user.getUsername()}">
                                                                         <label th:for="'password_edit'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">Password </label>
-                                                                        <input type="password" class="form-control form-control-sm mb-1"
+                                                                        <input type="password"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'password_edit'+${user.getId()}"
                                                                                th:name="password">
                                                                         <label th:for="'roles_edit'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">Role </label>
-                                                                        <select multiple class="form-control form-control-sm mb-1"
+                                                                        <select multiple
+                                                                                class="form-control form-control-sm mb-1"
                                                                                 th:id="'roles_edit'+${user.getId()}"
                                                                                 th:name="roles"
                                                                                 size="2">
@@ -190,39 +201,45 @@
                                                                     <div class="form-group">
                                                                         <label th:for="'id_delete'+${user.getId()}"
                                                                                class="col-form-label mt-m2 mb-n2">ID</label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'id_delete'+${user.getId()}"
                                                                                th:placeholder="${user.getId()}"
                                                                                readonly>
                                                                         <label th:for="'name_delete'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">First
                                                                             name</label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'name_delete'+${user.getId()}"
                                                                                th:placeholder="${user.getFirstName()}"
                                                                                readonly>
                                                                         <label th:for="'lastname_delete'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">Last
                                                                             name</label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'lastname_delete'+${user.getId()}"
                                                                                th:placeholder="${user.getLastName()}"
                                                                                readonly>
                                                                         <label th:for="'age_delete'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">Age</label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'age_delete'+${user.getId()}"
                                                                                th:placeholder="${user.getAge()}"
                                                                                readonly>
                                                                         <label th:for="'username_delete'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">Email</label>
-                                                                        <input type="text" class="form-control form-control-sm mb-1"
+                                                                        <input type="text"
+                                                                               class="form-control form-control-sm mb-1"
                                                                                th:id="'username_delete'+${user.getId()}"
                                                                                th:placeholder="${user.getUsername()}"
                                                                                readonly>
                                                                         <label th:for="'roles_delete'+${user.getId()}"
                                                                                class="col-form-label mt-1 mb-n2">Role</label>
-                                                                        <select multiple class="form-control form-control-sm mb-1"
+                                                                        <select multiple
+                                                                                class="form-control form-control-sm mb-1"
                                                                                 th:id="'roles_delete'+${user.getId()}"
                                                                                 size="2" disabled>
                                                                             <option th:each="role : ${user.getRoles()}"
@@ -270,10 +287,12 @@
                                                    th:field="*{username}" placeholder="Email">
 
                                             <label for="password" class="col-form-label mt-1 mb-n2">Password</label>
-                                            <input type="password" class="form-control form-control-sm mb-1" id="password"
+                                            <input type="password" class="form-control form-control-sm mb-1"
+                                                   id="password"
                                                    th:field="*{password}" placeholder="Password">
                                             <label for="roles" class="col-form-label mt-1 mb-n2">Role</label>
-                                            <select multiple class="form-control form-control-sm mb-1" id="roles" size="2"
+                                            <select multiple class="form-control form-control-sm mb-1" id="roles"
+                                                    size="2"
                                                     th:field="*{roles}">
                                                 <option
                                                         th:each="role : ${roles}"
@@ -292,7 +311,7 @@
         </main>
     </div>
 </div>
-
+<script src="/js/admin.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>

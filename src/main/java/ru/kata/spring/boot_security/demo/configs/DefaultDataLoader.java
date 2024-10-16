@@ -44,7 +44,7 @@ public class DefaultDataLoader implements ApplicationListener<ContextRefreshedEv
         user.setLastName("admin");
         user.setAge((short) 35);
         user.setUsername("admin@mail.ru");
-        user.setPassword("admin");
+        user.setPassword("123");
         user.setRoles(adminRoles);
         userService.save(user);
 
@@ -53,7 +53,7 @@ public class DefaultDataLoader implements ApplicationListener<ContextRefreshedEv
         user1.setLastName("user");
         user1.setAge((short) 30);
         user1.setUsername("user@mail.ru");
-        user1.setPassword("user");
+        user1.setPassword("123");
         Set<Role> userRole = new HashSet<>();
         userRole.add(roleService.findByName("ROLE_USER").orElse(null));
         user1.setRoles(userRole);

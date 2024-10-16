@@ -24,6 +24,7 @@ import java.util.Optional;
 @Controller
 @PreAuthorize("hasRole('ADMIN')")
 public class AdminController {
+
     private final UserService userService;
     private final RoleService roleService;
 
@@ -55,9 +56,9 @@ public class AdminController {
 
             model.addAttribute("errorMessage", "Username '" + user.getUsername() + "' is already taken.");
 
-//            return "redirect:/admin/error";
             return "admin/error";
         }
+
         userService.save(user);
         LoggerUtil.logInfo("User " + user.getUsername() + " was successfully added.");
         return "redirect:/admin";
@@ -74,7 +75,6 @@ public class AdminController {
 
             model.addAttribute("errorMessage", "Username '" + user.getUsername() + "' is already taken by another user.");
 
-//            return "redirect:/admin/error";
             return "admin/error";
         }
         userService.update(id, user);
